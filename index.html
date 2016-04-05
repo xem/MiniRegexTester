@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset=utf-8>
+<body style="width:600px;margin:0 auto">
+<center>
+<h1>MiniRegexTester</h1>
+Regex:
+<br>
+/ <input id=r placeholder=regex style="width:88%"> / <input id=m value=g style="width:5%">
+<br><br>
+Text:
+<textarea id=t style="width:100%;height:200px"></textarea>
+<br><br>
+Result:
+<pre id=o style="width:100%;height:200px;border:1px solid;text-align:left"></pre>
+<script>
+oninput=function(){
+	a=t.value;
+	b=new RegExp(r.value, m.value);
+	c=a.replace(b,"<x style='color:red'>$&</x>");
+	o.innerHTML=c.replace(/<(?!x|\/x)/g,"&lt;");
+}
+
+</script>
