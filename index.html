@@ -1,6 +1,7 @@
 <!doctype html>
 <meta charset=utf-8>
 <body style="width:600px;margin:0 auto">
+<a href=//github.com/xem/MiniRegexTester><img style="position:absolute;top:0;right:0;border:0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 <center>
 <h1>MiniRegexTester</h1>
 Regex:
@@ -16,8 +17,11 @@ Result:
 oninput=function(){
 	a=t.value;
 	b=new RegExp(r.value, m.value);
-	c=a.replace(b,"<x style='color:red'>$&</x>");
-	o.innerHTML=c.replace(/<(?!x|\/x)/g,"&lt;");
+	c=a.replace(b,"<>$&</>")
+      .replace(/&/g,"&amp;")
+      .replace(/<(?!\/?)/g,"&lt;")
+      .replace(//g,"mark");
+	o.innerHTML=c;
 }
-
+oninput();
 </script>
